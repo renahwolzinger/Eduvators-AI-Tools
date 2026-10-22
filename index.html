@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50 antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eduvators AI Tool Guide : Curated Artificial Intelligence Resources for Educators and Students</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            edupurple: {
+              DEFAULT: '#A02383',
+              hover: '#871a6e',
+              deep: '#3D0A30',
+              light: '#F5E6F0'
+            },
+            eduteal: {
+              DEFAULT: '#045577',
+              hover: '#03435e',
+              light: '#E8F4F8'
+            },
+            edugray: {
+              body: '#2D2D2D',
+              border: '#d1d5db'
+            }
+          },
+          fontFamily: {
+            sans: ['Verdana', 'Geneva', 'Tahoma', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Phosphor Icons Web Library -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <style>
+    /* Strict Verdana Typography across all elements */
+    body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, label, pre, code, th, td {
+      font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+      color: #2D2D2D;
+    }
+
+    /* High Contrast & Large Text Accessibility Mode */
+    html.a11y-large-text {
+      font-size: 18px !important;
+    }
+    html.a11y-high-contrast body {
+      background-color: #FFFFFF !important;
+    }
+    html.a11y-high-contrast .tool-card {
+      border-width: 3px !important;
+      border-color: #3D0A30 !important;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5E6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #A02383;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3D0A30;
+    }
+
+    /* WCAG 2.1 AA High Contrast Focus Ring */
+    *:focus-visible {
+      outline: 3px solid #A02383 !important;
+      outline-offset: 2px !important;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-50 text-[#2D2D2D]">
+
+  <!-- Accessibility Skip Navigation Link -->
+  <a href="#main-directory" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 z-50 bg-[#A02383] text-white px-4 py-2 rounded shadow-lg text-xs font-bold">
+    Skip to Directory Content
+  </a>
+
+  <!-- Top Institutional Bar -->
+  <aside aria-label="Official Eduvators Notification" class="bg-[#3D0A30] text-white text-xs py-2.5 px-4 border-b border-[#A02383]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#A02383] text-white">
+          Eduvators Standard
+        </span>
+        <span class="text-white text-[11px] sm:text-xs">
+          Audited for FERPA Compliance, COPPA, and WCAG 2.1 AA Accessibility
+        </span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-[11px]">
+        <button type="button" onclick="openSyllabusModal()" class="text-white hover:text-[#F5E6F0] underline transition font-bold flex items-center gap-1">
+          <i class="ph-bold ph-file-text text-white"></i>
+          Syllabus Policy Builder
+        </button>
+        <span class="text-white/60">•</span>
+        <button type="button" onclick="openCompareModal()" class="text-white hover:text-[#F5E6F0] underline transition font-bold flex items-center gap-1">
+          <i class="ph-bold ph-scales text-white"></i>
+          Compare Tools (<span id="compare-count-top" class="text-white">0</span>/2)
+        </button>
+        <span class="text-white/60">•</span>
+        <button type="button" onclick="openPrivacyInfoModal()" class="text-white hover:text-[#F5E6F0] underline transition">
+          Privacy Audit Checklist
+        </button>
+        <span class="text-white/60">•</span>
+        <a href="https://www.eduvators.net" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#F5E6F0] underline transition">
+          www.eduvators.net
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-30 bg-white border-b-2 border-[#045577] shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+      
+      <!-- Eduvators Brand Logo -->
+      <a href="#" onclick="resetAllFilters(); return false;" class="flex items-center gap-3 group focus:outline-none" aria-label="Eduvators AI Tool Guide Home">
+        <div class="w-11 h-11 rounded-lg bg-[#3D0A30] border-2 border-[#A02383] flex items-center justify-center text-white shadow-sm group-hover:bg-[#A02383] transition shrink-0">
+          <i class="ph-bold ph-graduation-cap text-2xl text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-base sm:text-xl tracking-tight text-[#3D0A30]">
+              Eduvators <span class="text-[#A02383]">AI Tool Guide</span>
+            </span>
+          </div>
+          <p class="text-[10px] text-[#045577] font-bold hidden md:block">
+            Curated Artificial Intelligence Resources for Educators and Students
+          </p>
+        </div>
+      </a>
+
+      <!-- Quick Filter Nav Tabs (Desktop) -->
+      <nav aria-label="Primary Quick Filters" class="hidden xl:flex items-center gap-1 bg-[#F5E6F0] p-1.5 rounded-lg border border-[#A02383]/20">
+        <button type="button" onclick="setQuickTab('all')" id="qtab-all" class="px-3 py-1.5 rounded text-xs font-bold transition bg-[#A02383] text-white shadow-xs">
+          All Tools
+        </button>
+        <button type="button" onclick="setQuickTab('core')" id="qtab-core" class="px-3 py-1.5 rounded text-xs font-bold text-[#2D2D2D] hover:bg-white transition">
+          Core Models
+        </button>
+        <button type="button" onclick="setQuickTab('free')" id="qtab-free" class="px-3 py-1.5 rounded text-xs font-bold text-[#2D2D2D] hover:bg-white transition">
+          Free / Edu Discount
+        </button>
+        <button type="button" onclick="setQuickTab('ferpa')" id="qtab-ferpa" class="px-3 py-1.5 rounded text-xs font-bold text-[#2D2D2D] hover:bg-white transition">
+          FERPA Verified
+        </button>
+        <button type="button" onclick="setQuickTab('accessibility')" id="qtab-accessibility" class="px-3 py-1.5 rounded text-xs font-bold text-[#2D2D2D] hover:bg-white transition">
+          Accessibility
+        </button>
+      </nav>
+
+      <!-- Right Hand Controls -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Accessibility Text & Contrast Toggle -->
+        <button 
+          type="button" 
+          onclick="toggleAccessibilityMode()" 
+          id="btn-a11y-toggle"
+          class="flex items-center gap-1 px-2.5 py-2 text-xs font-bold rounded-lg border-2 border-[#3D0A30] bg-white text-[#3D0A30] hover:bg-[#F5E6F0] transition"
+          title="Toggle Universal Design High Contrast and Large Text"
+          aria-label="Toggle High Contrast and Large Text Mode"
+        >
+          <i class="ph-bold ph-universal-access text-sm text-[#A02383]"></i>
+          <span class="hidden sm:inline" id="a11y-status-label">UDL View</span>
+        </button>
+
+        <!-- Saved Bookmarks Button -->
+        <button 
+          type="button" 
+          id="btn-saved-drawer" 
+          onclick="toggleBookmarkOnlyView()" 
+          class="flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg border-2 border-[#045577] bg-[#E8F4F8] text-[#045577] hover:bg-[#045577] hover:text-white transition"
+          aria-label="View Saved AI Tools"
+        >
+          <i class="ph-bold ph-bookmark-simple text-sm" id="nav-bookmark-icon"></i>
+          <span class="hidden md:inline">Saved</span>
+          <span id="saved-counter-badge" class="px-1.5 py-0.2 bg-[#045577] text-white rounded text-[11px] font-bold">0</span>
+        </button>
+
+        <!-- Submit Candidate Tool -->
+        <button 
+          type="button" 
+          onclick="openSuggestModal()" 
+          class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-white bg-[#A02383] hover:bg-[#871a6e] rounded-lg shadow-sm transition"
+        >
+          <i class="ph-bold ph-plus-circle text-sm text-white"></i>
+          <span class="hidden sm:inline text-white">Suggest Tool</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-[#3D0A30] text-white py-9 px-4 sm:px-6 lg:px-8 border-b-4 border-[#A02383]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#A02383] text-white text-xs font-bold mb-3 tracking-wide">
+            <i class="ph-bold ph-sparkle text-white"></i>
+            Official Eduvators Pedagogical Directory
+          </div>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-snug">
+            Eduvators AI Tool Guide
+          </h1>
+          <p class="mt-2 text-xs sm:text-sm text-[#F5E6F0] leading-relaxed">
+            Curated Artificial Intelligence Resources for Educators and Students. Explore vetted foundational models, multimodal research suites, ethical human in the loop prompts, FERPA evaluations, and Universal Design for Learning scaffolds.
+          </p>
+        </div>
+
+        <!-- Pedagogical Quick Tools -->
+        <div class="flex flex-wrap gap-2 shrink-0">
+          <button 
+            type="button" 
+            onclick="openSyllabusModal()" 
+            class="px-3.5 py-2.5 rounded-lg bg-[#E8F4F8] text-[#045577] hover:bg-white text-xs font-bold flex items-center gap-1.5 border-2 border-[#045577] transition shadow-sm"
+          >
+            <i class="ph-bold ph-scroll text-sm text-[#045577]"></i>
+            <span>Syllabus Policy Generator</span>
+          </button>
+          <button 
+            type="button" 
+            onclick="openCompareModal()" 
+            class="px-3.5 py-2.5 rounded-lg bg-[#F5E6F0] text-[#3D0A30] hover:bg-white text-xs font-bold flex items-center gap-1.5 border-2 border-[#A02383] transition shadow-sm"
+          >
+            <i class="ph-bold ph-columns text-sm text-[#A02383]"></i>
+            <span>Side by Side Matrix (<span id="compare-count-hero">0</span>/2)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Search, Sort, Bloom's Taxonomy & Privacy Filter Row -->
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
+        
+        <!-- Live Instant Search Bar -->
+        <div class="sm:col-span-2 lg:col-span-5 relative">
+          <label for="guide-search-input" class="sr-only">Search Artificial Intelligence Tools</label>
+          <i class="ph-bold ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-[#045577] text-lg pointer-events-none"></i>
+          <input 
+            type="search" 
+            id="guide-search-input" 
+            placeholder="Search by tool name, subject, or pedagogy (e.g. Socratic, Music, Video, IEP)..." 
+            class="w-full bg-[#E8F4F8] text-[#2D2D2D] placeholder-[#2D2D2D]/70 text-xs sm:text-sm pl-11 pr-4 py-3 rounded-lg border-2 border-transparent focus:border-[#A02383] focus:bg-white outline-none transition font-medium"
+            oninput="handleSearchInput(event)"
+          >
+        </div>
+
+        <!-- Bloom's Cognitive Level Filter -->
+        <div class="lg:col-span-3 relative">
+          <label for="select-blooms-filter" class="sr-only">Filter by Cognitive Level</label>
+          <select 
+            id="select-blooms-filter" 
+            onchange="handleBloomsSelect(event)" 
+            class="w-full bg-white text-[#2D2D2D] text-xs font-bold py-3 pl-3 pr-8 rounded-lg border-2 border-[#045577] outline-none focus:border-[#A02383] appearance-none cursor-pointer"
+          >
+            <option value="all">Pedagogy : All Cognitive Levels</option>
+            <option value="Understand & Scaffold">Bloom's : Understand & Scaffold</option>
+            <option value="Analyze & Synthesize">Bloom's : Analyze & Synthesize</option>
+            <option value="Evaluate & Verify">Bloom's : Evaluate & Verify</option>
+            <option value="Create & Compose">Bloom's : Create & Compose</option>
+          </select>
+          <i class="ph-bold ph-brain absolute right-3 top-1/2 -translate-y-1/2 text-[#045577] pointer-events-none"></i>
+        </div>
+
+        <!-- Student Privacy Badge Filter -->
+        <div class="lg:col-span-2 relative">
+          <label for="select-privacy-filter" class="sr-only">Filter by Privacy Badge</label>
+          <select 
+            id="select-privacy-filter" 
+            onchange="handlePrivacySelect(event)" 
+            class="w-full bg-white text-[#2D2D2D] text-xs font-bold py-3 pl-3 pr-8 rounded-lg border-2 border-[#045577] outline-none focus:border-[#A02383] appearance-none cursor-pointer"
+          >
+            <option value="all">Privacy : All</option>
+            <option value="ferpa">FERPA Verified</option>
+            <option value="campus">Campus Safe</option>
+            <option value="student">Student Direct</option>
+          </select>
+          <i class="ph-bold ph-shield-check absolute right-3 top-1/2 -translate-y-1/2 text-[#045577] pointer-events-none"></i>
+        </div>
+
+        <!-- Sort Option Dropdown -->
+        <div class="lg:col-span-2 relative">
+          <label for="select-sort-order" class="sr-only">Sort Tools</label>
+          <select 
+            id="select-sort-order" 
+            onchange="handleSortSelect(event)" 
+            class="w-full bg-white text-[#2D2D2D] text-xs font-bold py-3 pl-3 pr-8 rounded-lg border-2 border-[#045577] outline-none focus:border-[#A02383] appearance-none cursor-pointer"
+          >
+            <option value="featured">Sort : Featured</option>
+            <option value="alphabetical">Sort : A to Z</option>
+            <option value="pricing">Sort : Free First</option>
+          </select>
+          <i class="ph-bold ph-sort-ascending absolute right-3 top-1/2 -translate-y-1/2 text-[#045577] pointer-events-none"></i>
+        </div>
+
+      </div>
+
+      <!-- Live Statistics Counter -->
+      <div class="mt-4 pt-3 border-t border-white/20 flex flex-wrap items-center gap-4 sm:gap-8 text-xs text-[#F5E6F0]">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#A02383] inline-block ring-2 ring-white"></span>
+          <span class="text-white">Curated Platforms : <strong class="text-white" id="count-total-tools">20</strong></span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <i class="ph-bold ph-shield-check text-[#E8F4F8] text-sm"></i>
+          <span class="text-white">100% Student Privacy Rated</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <i class="ph-bold ph-universal-access text-[#E8F4F8] text-sm"></i>
+          <span class="text-white">WCAG 2.1 AA Accessibility Standards</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main id="main-directory" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- Category Filter Bar -->
+    <section aria-label="Tool Categories" class="mb-6">
+      <div class="flex items-center justify-between border-b-2 border-[#045577] pb-3 overflow-x-auto no-scrollbar gap-2" id="category-pills-bar">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Secondary Filter Bar -->
+    <section aria-label="Active Filters and Sorting" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-6 space-y-3">
+      
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-gray-100">
+        
+        <!-- Pricing Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+          <span class="text-[#045577] uppercase tracking-wide mr-1 text-[11px]">Pricing Model :</span>
+          <button type="button" onclick="setPricingFilter('all')" id="price-btn-all" class="price-btn px-2.5 py-1 rounded bg-[#A02383] text-white">All Models</button>
+          <button type="button" onclick="setPricingFilter('Free')" id="price-btn-Free" class="price-btn px-2.5 py-1 rounded bg-[#E8F4F8] text-[#045577] hover:bg-[#F5E6F0]">Free</button>
+          <button type="button" onclick="setPricingFilter('Freemium')" id="price-btn-Freemium" class="price-btn px-2.5 py-1 rounded bg-[#E8F4F8] text-[#045577] hover:bg-[#F5E6F0]">Freemium / Edu Tier</button>
+          <button type="button" onclick="setPricingFilter('Paid')" id="price-btn-Paid" class="price-btn px-2.5 py-1 rounded bg-[#E8F4F8] text-[#045577] hover:bg-[#F5E6F0]">Paid / Institutional</button>
+        </div>
+
+        <!-- Result Meta & Clear -->
+        <div class="flex items-center justify-between sm:justify-end gap-3 text-xs">
+          <span id="active-results-indicator" class="font-bold text-[#045577]">Displaying 20 Educational Tools</span>
+          <button 
+            type="button" 
+            id="reset-filters-btn" 
+            onclick="resetAllFilters()" 
+            class="hidden text-[#A02383] hover:text-[#871a6e] font-bold underline transition"
+          >
+            Clear Active Filters
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Active Filter Tags Display Container -->
+      <div id="filter-tag-pills" class="flex flex-wrap items-center gap-2 pt-1 hidden">
+        <span class="text-xs font-bold text-[#045577]">Active Selections :</span>
+        <div id="filter-pills-list" class="flex flex-wrap items-center gap-1.5"></div>
+      </div>
+
+    </section>
+
+    <!-- Catalog Cards Grid -->
+    <section aria-label="Directory Tool Cards" id="tools-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <!-- Injected by JavaScript -->
+    </section>
+
+    <!-- Empty State Message -->
+    <div id="empty-state-card" class="hidden py-16 px-4 text-center bg-white rounded-xl border border-gray-200 shadow-sm mt-4">
+      <div class="w-16 h-16 mx-auto mb-3 bg-[#F5E6F0] text-[#A02383] rounded-full flex items-center justify-center text-3xl">
+        <i class="ph-bold ph-magnifying-glass"></i>
+      </div>
+      <h3 class="text-lg font-bold text-[#3D0A30]">No matching educational tools found</h3>
+      <p class="text-xs text-[#2D2D2D] max-w-md mx-auto mt-1 leading-relaxed">
+        Try modifying your search keywords or resetting the category and pricing selections to browse the full directory.
+      </p>
+      <button 
+        type="button" 
+        onclick="resetAllFilters()" 
+        class="mt-4 px-4 py-2 bg-[#A02383] hover:bg-[#871a6e] text-white text-xs font-bold rounded-lg transition"
+      >
+        Reset All Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Pedagogical Classroom Guide Drawer / Modal -->
+  <div 
+    id="pedagogical-modal" 
+    class="fixed inset-0 z-50 overflow-y-auto hidden" 
+    aria-labelledby="modal-tool-name" 
+    role="dialog" 
+    aria-modal="true"
+  >
+    <div class="fixed inset-0 bg-[#3D0A30]/80 transition-opacity" onclick="closeGuideModal()" aria-hidden="true"></div>
+
+    <div class="flex min-h-full items-end sm:items-center justify-center p-0 sm:p-4 text-left">
+      <div class="relative transform overflow-hidden rounded-t-xl sm:rounded-xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-3xl border-2 border-[#045577]">
+        
+        <!-- Modal Deep Purple Header -->
+        <div class="bg-[#3D0A30] text-white p-5 sm:p-6 border-b-4 border-[#A02383] relative">
+          <button 
+            type="button" 
+            onclick="closeGuideModal()" 
+            class="absolute top-4 right-4 text-white hover:bg-[#A02383] p-2 rounded-lg transition" 
+            aria-label="Close Pedagogical Guide"
+          >
+            <i class="ph-bold ph-x text-lg text-white"></i>
+          </button>
+
+          <div class="flex items-start gap-4 pr-8">
+            <div id="modal-tool-icon" class="w-14 h-14 rounded-xl bg-white flex items-center justify-center text-2xl shrink-0 border-2 border-[#A02383]">
+              <!-- Injected Tool Icon -->
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="modal-priority-rank" class="text-xs px-2 py-0.5 rounded bg-[#045577] text-white font-bold">Priority #1</span>
+                <h2 id="modal-tool-name" class="text-xl sm:text-2xl font-bold text-white tracking-tight">Tool Name</h2>
+              </div>
+              <p id="modal-vendor-label" class="text-xs text-[#F5E6F0] font-bold mt-1">Vendor / Developer</p>
+            </div>
+          </div>
+
+          <div class="mt-4 flex flex-wrap items-center gap-2 text-xs">
+            <span id="modal-privacy-badge" class="px-2.5 py-1 rounded bg-[#E8F4F8] text-[#045577] font-bold border border-[#045577]">
+              FERPA Status
+            </span>
+            <span id="modal-pricing-pill" class="px-2.5 py-1 rounded bg-[#F5E6F0] text-[#A02383] font-bold border border-[#A02383]">
+              Pricing Model
+            </span>
+            <span id="modal-blooms-badge" class="px-2.5 py-1 rounded bg-white text-[#3D0A30] font-bold">
+              Bloom's Level
+            </span>
+            <span id="modal-accessibility-badge" class="px-2.5 py-1 rounded bg-[#045577] text-white font-bold">
+              WCAG 2.1 AA
+            </span>
+          </div>
+        </div>
+
+        <!-- Modal Body Content -->
+        <div class="p-5 sm:p-6 space-y-5 max-h-[70vh] overflow-y-auto bg-white">
+          
+          <!-- Summary Statement -->
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#045577] mb-1">
+              Resource Overview :
+            </h3>
+            <p id="modal-summary-text" class="text-xs sm:text-sm text-[#2D2D2D] leading-relaxed">
+              Overview description.
+            </p>
+          </div>
+
+          <!-- Section 1 : Pedagogical Objective and Integration Idea -->
+          <div class="p-4 rounded-xl bg-[#E8F4F8] border border-[#045577]">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#045577] flex items-center gap-1.5 mb-2">
+              <i class="ph-bold ph-lightbulb text-base text-[#045577]"></i>
+              Pedagogical Objective and Classroom Integration :
+            </h3>
+            <p id="modal-objective-text" class="text-xs sm:text-sm text-[#2D2D2D] leading-relaxed">
+              Objective text description.
+            </p>
+          </div>
+
+          <!-- Section 2 : Ready to Use Classroom Prompt Scaffolding with 1 Click Copy -->
+          <div class="p-4 rounded-xl bg-[#F5E6F0] border border-[#A02383]">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-[#A02383] flex items-center gap-1.5">
+                <i class="ph-bold ph-terminal text-base text-[#A02383]"></i>
+                Classroom Ready Prompt Scaffolding :
+              </h3>
+              <div class="flex items-center gap-1.5">
+                <button 
+                  type="button" 
+                  onclick="copyPromptCode()" 
+                  class="px-2.5 py-1 text-xs font-bold bg-[#A02383] hover:bg-[#871a6e] text-white rounded transition flex items-center gap-1"
+                  aria-label="Copy prompt to clipboard"
+                >
+                  <i class="ph-bold ph-copy text-white"></i>
+                  <span id="copy-btn-label" class="text-white">Copy Prompt</span>
+                </button>
+                <button 
+                  type="button" 
+                  onclick="exportSingleToolHandout()" 
+                  class="px-2.5 py-1 text-xs font-bold bg-[#045577] hover:bg-[#03435e] text-white rounded transition flex items-center gap-1"
+                  aria-label="Download Markdown Lesson Guide"
+                >
+                  <i class="ph-bold ph-download-simple text-white"></i>
+                  <span class="text-white">Export Guide (.md)</span>
+                </button>
+              </div>
+            </div>
+            <pre id="modal-prompt-text" class="text-xs font-mono text-[#2D2D2D] bg-white p-3 rounded-lg border border-[#A02383]/40 whitespace-pre-wrap leading-relaxed select-all">
+              Scaffolding prompt.
+            </pre>
+          </div>
+
+          <!-- Section 3 : Responsible AI and Ethical Considerations -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-gray-300">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#3D0A30] flex items-center gap-1.5 mb-2">
+              <i class="ph-bold ph-scales text-base text-[#A02383]"></i>
+              Responsible AI Guidelines (Human in the Loop, Attribution, Privacy) :
+            </h3>
+            <p id="modal-ethics-text" class="text-xs sm:text-sm text-[#2D2D2D] leading-relaxed">
+              Human in the loop verification notes.
+            </p>
+          </div>
+
+          <!-- Section 4 : Compliance and Privacy Notes (FERPA / COPPA) -->
+          <div class="p-4 rounded-xl bg-[#E8F4F8] border border-[#045577]">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-[#045577] flex items-center gap-1.5 mb-2">
+              <i class="ph-bold ph-shield-check text-base text-[#045577]"></i>
+              Compliance and Privacy Notes (FERPA / COPPA Readiness) :
+            </h3>
+            <div class="text-xs text-[#2D2D2D] space-y-2">
+              <div class="flex items-start gap-2">
+                <i class="ph-bold ph-check text-[#045577] mt-0.5 text-sm shrink-0"></i>
+                <div>
+                  <strong class="text-[#045577]">Data Training Policy :</strong>
+                  <span id="modal-privacy-training">Policy text</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-2">
+                <i class="ph-bold ph-check text-[#045577] mt-0.5 text-sm shrink-0"></i>
+                <div>
+                  <strong class="text-[#045577]">Student Account Architecture :</strong>
+                  <span id="modal-privacy-account">Account text</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Modal Bottom Actions -->
+        <div class="bg-gray-50 px-5 py-4 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <button 
+              type="button" 
+              onclick="toggleCurrentModalBookmark()" 
+              id="modal-bookmark-toggle-btn" 
+              class="px-3.5 py-2 rounded-lg text-xs font-bold border-2 border-[#045577] text-[#045577] hover:bg-[#E8F4F8] transition flex items-center gap-1.5"
+            >
+              <i class="ph-bold ph-bookmark-simple"></i>
+              <span id="modal-bookmark-btn-text">Save Tool</span>
+            </button>
+            <button 
+              type="button" 
+              onclick="toggleCompareFromModal()" 
+              id="modal-compare-toggle-btn" 
+              class="px-3.5 py-2 rounded-lg text-xs font-bold border-2 border-[#A02383] text-[#A02383] hover:bg-[#F5E6F0] transition flex items-center gap-1.5"
+            >
+              <i class="ph-bold ph-columns"></i>
+              <span id="modal-compare-btn-text">Add to Compare</span>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button 
+              type="button" 
+              onclick="closeGuideModal()" 
+              class="px-4 py-2 rounded-lg text-xs font-bold text-[#2D2D2D] hover:bg-gray-200 transition"
+            >
+              Close
+            </button>
+            <a 
+              id="modal-external-link" 
+              href="#" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="px-5 py-2 rounded-lg text-xs font-bold text-white bg-[#A02383] hover:bg-[#871a6e] transition flex items-center gap-1.5 shadow-sm"
+            >
+              <span class="text-white">Launch Tool</span>
+              <i class="ph-bold ph-arrow-square-out text-sm text-white"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Side by Side Pedagogical Matrix Comparison Modal -->
+  <div id="compare-matrix-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="compare-heading" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-[#3D0A30]/80" onclick="closeCompareModal()" aria-hidden="true"></div>
+    <div class="flex min-h-full items-center justify-center p-4">
+      <div class="relative bg-white rounded-xl max-w-4xl w-full overflow-hidden shadow-2xl border-2 border-[#045577]">
+        <div class="bg-[#3D0A30] text-white p-5 border-b-4 border-[#A02383] flex items-center justify-between">
+          <div>
+            <h2 id="compare-heading" class="text-lg font-bold text-white flex items-center gap-2">
+              <i class="ph-bold ph-columns text-[#F5E6F0] text-xl"></i>
+              Pedagogical Matrix Comparison
+            </h2>
+            <p class="text-xs text-[#F5E6F0] mt-0.5">
+              Compare privacy tiers, pricing, cognitive levels, and classroom objectives side by side.
+            </p>
+          </div>
+          <button type="button" onclick="closeCompareModal()" class="text-white hover:bg-[#A02383] p-2 rounded-lg transition">
+            <i class="ph-bold ph-x text-lg text-white"></i>
+          </button>
+        </div>
+
+        <div class="p-5 sm:p-6 max-h-[75vh] overflow-y-auto">
+          <!-- Selector Controls inside Matrix -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 bg-[#E8F4F8] p-4 rounded-xl border border-[#045577]">
+            <div>
+              <label for="compare-select-1" class="block text-xs font-bold text-[#045577] mb-1">First Tool Selection :</label>
+              <select id="compare-select-1" onchange="updateComparisonFromSelects()" class="w-full text-xs font-bold p-2.5 rounded border-2 border-[#045577] bg-white">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div>
+              <label for="compare-select-2" class="block text-xs font-bold text-[#A02383] mb-1">Second Tool Selection :</label>
+              <select id="compare-select-2" onchange="updateComparisonFromSelects()" class="w-full text-xs font-bold p-2.5 rounded border-2 border-[#A02383] bg-white">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div id="comparison-table-container" class="overflow-x-auto">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div class="bg-gray-50 px-5 py-3.5 border-t border-gray-200 flex justify-between items-center">
+          <button type="button" onclick="clearComparisonSelection()" class="text-xs font-bold text-[#A02383] underline">
+            Reset Selections
+          </button>
+          <button type="button" onclick="closeCompareModal()" class="px-4 py-2 bg-[#045577] text-white text-xs font-bold rounded-lg hover:bg-[#03435e] transition">
+            Done Comparing
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Syllabus Statement & Student Attribution Policy Builder Modal -->
+  <div id="syllabus-builder-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="syllabus-heading" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-[#3D0A30]/80" onclick="closeSyllabusModal()" aria-hidden="true"></div>
+    <div class="flex min-h-full items-center justify-center p-4">
+      <div class="relative bg-white rounded-xl max-w-2xl w-full overflow-hidden shadow-2xl border-2 border-[#045577]">
+        <div class="bg-[#3D0A30] text-white p-5 border-b-4 border-[#A02383] flex items-center justify-between">
+          <div>
+            <h2 id="syllabus-heading" class="text-lg font-bold text-white flex items-center gap-2">
+              <i class="ph-bold ph-scroll text-[#F5E6F0] text-xl"></i>
+              Course Syllabus AI Policy & Attribution Generator
+            </h2>
+            <p class="text-xs text-[#F5E6F0] mt-0.5">
+              Generate customized syllabus language and student disclosure templates for your course.
+            </p>
+          </div>
+          <button type="button" onclick="closeSyllabusModal()" class="text-white hover:bg-[#A02383] p-2 rounded-lg transition">
+            <i class="ph-bold ph-x text-lg text-white"></i>
+          </button>
+        </div>
+
+        <div class="p-5 sm:p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="syl-course-name" class="block text-xs font-bold text-[#045577] mb-1">Course Title / Code :</label>
+              <input type="text" id="syl-course-name" value="ENGL 101 : Academic Composition" oninput="refreshSyllabusPreview()" class="w-full text-xs px-3 py-2 border-2 border-gray-300 rounded focus:border-[#A02383] outline-none">
+            </div>
+            <div>
+              <label for="syl-policy-tier" class="block text-xs font-bold text-[#045577] mb-1">Pedagogical AI Policy Tier :</label>
+              <select id="syl-policy-tier" onchange="refreshSyllabusPreview()" class="w-full text-xs font-bold px-3 py-2 border-2 border-[#045577] rounded bg-white">
+                <option value="collaborative">Tier 1 : Full Collaborative Integration (With Attribution)</option>
+                <option value="scaffolded">Tier 2 : Brainstorming & Outlining Only (Human Drafting)</option>
+                <option value="restricted">Tier 3 : Instructor Approved Assignments Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="syl-approved-tool" class="block text-xs font-bold text-[#045577] mb-1">Primary Highlighted Platform :</label>
+            <select id="syl-approved-tool" onchange="refreshSyllabusPreview()" class="w-full text-xs font-bold px-3 py-2 border-2 border-gray-300 rounded bg-white">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#F5E6F0] border border-[#A02383]">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-[#3D0A30] uppercase">Generated Syllabus Statement :</span>
+              <div class="flex gap-2">
+                <button type="button" onclick="copySyllabusText()" class="px-3 py-1 bg-[#A02383] text-white text-xs font-bold rounded hover:bg-[#871a6e] transition">
+                  Copy Statement
+                </button>
+                <button type="button" onclick="downloadSyllabusMarkdown()" class="px-3 py-1 bg-[#045577] text-white text-xs font-bold rounded hover:bg-[#03435e] transition">
+                  Download .md
+                </button>
+              </div>
+            </div>
+            <pre id="syllabus-output-box" class="text-xs font-mono bg-white p-3.5 rounded-lg border border-[#A02383]/30 whitespace-pre-wrap leading-relaxed select-all"></pre>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 px-5 py-3.5 border-t border-gray-200 text-right">
+          <button type="button" onclick="closeSyllabusModal()" class="px-4 py-2 bg-[#3D0A30] text-white text-xs font-bold rounded-lg">
+            Close Builder
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggest Candidate Tool Modal -->
+  <div id="suggest-tool-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="suggest-heading" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-[#3D0A30]/80" onclick="closeSuggestModal()" aria-hidden="true"></div>
+    <div class="flex min-h-full items-center justify-center p-4">
+      <div class="relative bg-white rounded-xl max-w-md w-full p-6 text-left shadow-2xl border-2 border-[#045577]">
+        <h2 id="suggest-heading" class="text-base font-bold text-[#3D0A30] flex items-center gap-2">
+          <i class="ph-bold ph-plus-circle text-[#A02383] text-xl"></i>
+          Submit Tool for Eduvators Review
+        </h2>
+        <p class="text-xs text-[#2D2D2D] mt-1">
+          Our editorial team audits resources for FERPA alignment, WCAG accessibility, and genuine educational merit.
+        </p>
+
+        <form id="suggest-form" onsubmit="handleSuggestFormSubmit(event)" class="mt-4 space-y-3">
+          <div>
+            <label for="sub-name" class="block text-xs font-bold text-[#045577] mb-1">Tool Name :</label>
+            <input type="text" id="sub-name" required placeholder="e.g. Curipod" class="w-full text-xs px-3 py-2 border-2 border-gray-300 rounded focus:border-[#A02383] outline-none">
+          </div>
+          <div>
+            <label for="sub-vendor" class="block text-xs font-bold text-[#045577] mb-1">Vendor / Developer :</label>
+            <input type="text" id="sub-vendor" required placeholder="e.g. Curipod AS" class="w-full text-xs px-3 py-2 border-2 border-gray-300 rounded focus:border-[#A02383] outline-none">
+          </div>
+          <div>
+            <label for="sub-url" class="block text-xs font-bold text-[#045577] mb-1">Website URL :</label>
+            <input type="url" id="sub-url" required placeholder="https://..." class="w-full text-xs px-3 py-2 border-2 border-gray-300 rounded focus:border-[#A02383] outline-none">
+          </div>
+          <div>
+            <label for="sub-notes" class="block text-xs font-bold text-[#045577] mb-1">Classroom Pedagogy Value :</label>
+            <textarea id="sub-notes" rows="3" required placeholder="How does this tool enhance teaching or learning?" class="w-full text-xs px-3 py-2 border-2 border-gray-300 rounded focus:border-[#A02383] outline-none"></textarea>
+          </div>
+          <div class="pt-2 flex justify-end gap-2">
+            <button type="button" onclick="closeSuggestModal()" class="px-3 py-2 text-xs font-bold text-[#2D2D2D] hover:bg-gray-100 rounded">
+              Cancel
+            </button>
+            <button type="submit" class="px-4 py-2 bg-[#A02383] hover:bg-[#871a6e] text-white font-bold text-xs rounded transition">
+              Submit Candidate Tool
+            </button>
+          </div>
+        </form>
+
+        <div id="suggest-confirmation" class="hidden text-center py-4">
+          <i class="ph-bold ph-check-circle text-3xl text-[#045577] mb-2"></i>
+          <p class="text-sm font-bold text-[#3D0A30]">Candidate Submission Received</p>
+          <p class="text-xs text-[#2D2D2D] mt-1">Thank you for contributing to responsible artificial intelligence in education.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Institutional Privacy Checklist Modal -->
+  <div id="privacy-checklist-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="priv-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-[#3D0A30]/80" onclick="closePrivacyInfoModal()" aria-hidden="true"></div>
+    <div class="flex min-h-full items-center justify-center p-4">
+      <div class="relative bg-white rounded-xl max-w-lg w-full p-6 text-left shadow-2xl border-2 border-[#045577]">
+        <h2 id="priv-title" class="text-lg font-bold text-[#3D0A30] flex items-center gap-2">
+          <i class="ph-bold ph-shield-check text-[#045577] text-2xl"></i>
+          Eduvators Privacy and Safety Audit Standard
+        </h2>
+        <p class="text-xs text-[#2D2D2D] mt-2 leading-relaxed">
+          The Eduvators AI Tool Guide evaluates every listed application against 4 strict institutional benchmarks prior to publication:
+        </p>
+
+        <ul class="mt-4 space-y-3 text-xs text-[#2D2D2D]">
+          <li class="p-3 bg-[#E8F4F8] rounded-lg border border-[#045577]">
+            <strong class="text-[#045577] block mb-0.5">1. FERPA and COPPA Data Isolation :</strong>
+            Student text, audio submissions, and student identity records must never be utilized to train public foundation models without explicit Data Protection Agreements.
+          </li>
+          <li class="p-3 bg-[#F5E6F0] rounded-lg border border-[#A02383]">
+            <strong class="text-[#A02383] block mb-0.5">2. Human in the Loop Pedagogy :</strong>
+            Educational generative tools must facilitate critical thinking and prompt verification rather than unattended output generation.
+          </li>
+          <li class="p-3 bg-[#E8F4F8] rounded-lg border border-[#045577]">
+            <strong class="text-[#045577] block mb-0.5">3. WCAG 2.1 AA Accessibility Standards :</strong>
+            Platforms must accommodate screen readers, keyboard navigation, and high contrast visibility for Universal Design for Learning.
+          </li>
+          <li class="p-3 bg-gray-50 rounded-lg border border-gray-300">
+            <strong class="text-[#3D0A30] block mb-0.5">4. Classroom Roster Simplicity :</strong>
+            Support for teacher managed guest rooms, Google Workspace, or Microsoft single sign on without unsolicited marketing to minors.
+          </li>
+        </ul>
+
+        <div class="mt-5 text-right">
+          <button type="button" onclick="closePrivacyInfoModal()" class="px-4 py-2 bg-[#A02383] text-white text-xs font-bold rounded hover:bg-[#871a6e] transition">
+            Close Checklist
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div 
+    id="eduvators-toast" 
+    class="fixed bottom-5 right-5 z-50 bg-[#3D0A30] text-white text-xs px-4 py-3 rounded-lg shadow-xl border-2 border-[#A02383] flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-200 pointer-events-none"
+    role="status" 
+    aria-live="polite"
+  >
+    <i class="ph-bold ph-check text-white" id="toast-indicator-icon"></i>
+    <span id="toast-text" class="text-white font-bold">Action confirmed</span>
+  </div>
+
+  <!-- Eduvators Signature Footer -->
+  <footer class="bg-white border-t-4 border-[#045577] mt-12 py-8 text-xs text-[#2D2D2D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex flex-wrap items-center justify-center gap-3 font-bold text-xs">
+        <a href="https://www.eduvators.net" target="_blank" rel="noopener noreferrer" class="text-[#045577] hover:text-[#A02383] underline transition">
+          www.eduvators.net
+        </a>
+        <span class="text-[#045577]">|</span>
+        <span class="text-[#3D0A30]">Eduvators AI Tool Guide</span>
+        <span class="text-[#045577]">|</span>
+        <a href="mailto:contact@eduvators.net" class="text-[#A02383] hover:underline transition">
+          contact@eduvators.net
+        </a>
+      </div>
+      <p class="mt-2 text-[11px] text-[#045577]">
+        Curated Artificial Intelligence Directory for Educators and Students • Strict WCAG 2.1 AA Compliant
+      </p>
+    </div>
+  </footer>
+
+  <!-- Complete Application Script -->
+  <script>
+    // Eduvators Curated Database (Strict Priority Ordering 1 to 20; Zero dashes in display strings)
+    const EDUVATORS_TOOLS = [
+      {
+        priority: 1,
+        id: "tool:1:gemini:edu",
+        name: "Gemini for Education (Gemini Edu)",
+        vendor: "Google LLC",
+        category: "core",
+        categoryTitle: "Core Models",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free for Education (Workspace)",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 98,
+        shortSummary: "Enterprise grade artificial intelligence integrated into Google Workspace for Education with full student data protections.",
+        objective: "Empower students with a personalized Socratic study tutor while giving instructors tools to scaffold differentiated lesson plans and rubrics.",
+        promptScaffold: "Act as an empathetic Socratic learning assistant. Guide a high school student through balancing the following chemical reaction without providing immediate answers : Fe plus O2 yields Fe2O3. Pose sequential questions that encourage deductive reasoning.",
+        ethicsConsiderations: "Human in the loop verification is required for all educator generated instructional artifacts. Teach students to treat Gemini as an inquiry coach rather than an answer retrieval engine.",
+        ferpaTraining: "Customer and student data in Google Workspace for Education is isolated and never utilized to train Google foundational generative weights.",
+        accountReqs: "Federated single sign on via institutional Google Workspace for Education domain.",
+        url: "https://edu.google.com/workspace-for-education/gemini/",
+        icon: "ph-google-logo"
+      },
+      {
+        priority: 2,
+        id: "tool:2:gemini:pro",
+        name: "Gemini Advanced / Pro",
+        vendor: "Google LLC",
+        category: "core",
+        categoryTitle: "Core Models",
+        bloomsLevel: "Analyze & Synthesize",
+        pricingModel: "Edu Discount / Subscription",
+        pricingType: "Freemium",
+        privacyBadge: "Campus Safe",
+        privacyTier: "campus",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 96,
+        shortSummary: "Multimodal reasoning system equipped with a million token context window, deep academic research, and code execution.",
+        objective: "Perform exhaustive cross disciplinary analysis across lengthy historical primary archives, dense datasets, and video lectures simultaneously.",
+        promptScaffold: "Analyze the uploaded hundred page environmental policy report. Synthesize three competing stakeholder viewpoints regarding municipal water rights, providing precise textual citations and a synthesized tabular comparison.",
+        ethicsConsiderations: "Verify contextual hallucinations. Ensure students cross check synthetic summaries against the primary page references indicated in the output window.",
+        ferpaTraining: "Enterprise Google accounts enforce commercial data protection. Standard consumer tiers retain prompts unless manually disabled in privacy preferences.",
+        accountReqs: "Institutional or Google account authentication.",
+        url: "https://gemini.google.com",
+        icon: "ph-sparkle"
+      },
+      {
+        priority: 3,
+        id: "tool:3:gemini:notebook",
+        name: "Gemini Notebook (NotebookLM)",
+        vendor: "Google LLC",
+        category: "writing",
+        categoryTitle: "Writing and Research",
+        bloomsLevel: "Analyze & Synthesize",
+        pricingModel: "Free for Education",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 97,
+        shortSummary: "Grounded research notebook that reasons strictly across uploaded documents, generating source citations, study guides, and audio discussions.",
+        objective: "Synthesize course readings, convert syllabus materials into interactive study guides, and verify student claims with grounded paragraph citations.",
+        promptScaffold: "Based strictly on the five uploaded historical journal articles, outline the economic factors that contributed to the 1929 stock market crash. Provide inline citations citing author and page numbers for every assertion.",
+        ethicsConsiderations: "Grounding guarantee. Because NotebookLM cites only uploaded sources, teach students how to identify gaps when uploaded material lacks adequate evidentiary breadth.",
+        ferpaTraining: "Documents uploaded into NotebookLM are isolated to the user notebook session and not used for foundational model training.",
+        accountReqs: "Google Workspace or individual Google sign in.",
+        url: "https://notebooklm.google.com",
+        icon: "ph-notebook"
+      },
+      {
+        priority: 4,
+        id: "tool:4:ms:copilot",
+        name: "Microsoft Copilot",
+        vendor: "Microsoft Corporation",
+        category: "core",
+        categoryTitle: "Core Models",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free Tier / Campus Included",
+        pricingType: "Freemium",
+        privacyBadge: "Campus Safe",
+        privacyTier: "campus",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 95,
+        shortSummary: "Institutional productivity AI featuring commercial data protection for drafting curriculum decks, spreadsheets, and syllabi.",
+        objective: "Streamline instructional preparation, analyze student performance trends in spreadsheets, and draft accessible PowerPoint lecture modules.",
+        promptScaffold: "Draft an engaging four week modular syllabus outline for an introductory undergraduate ethics course exploring artificial intelligence, complete with weekly discussion questions, reading assignments, and Universal Design for Learning options.",
+        ethicsConsiderations: "Maintain teacher oversight. Validate all generated curriculum frameworks against institutional learning outcomes and regional accreditation standards.",
+        ferpaTraining: "Enterprise Microsoft 365 tenants provide commercial data protection ensuring enterprise chat queries are not saved or viewed by Microsoft.",
+        accountReqs: "Institutional Microsoft Entra ID (Office 365) login.",
+        url: "https://copilot.microsoft.com",
+        icon: "ph-microsoft-teams-logo"
+      },
+      {
+        priority: 5,
+        id: "tool:5:chatgpt:plus",
+        name: "ChatGPT Plus",
+        vendor: "OpenAI Inc.",
+        category: "core",
+        categoryTitle: "Core Models",
+        bloomsLevel: "Analyze & Synthesize",
+        pricingModel: "Freemium / Premium Tier",
+        pricingType: "Freemium",
+        privacyBadge: "Campus Safe",
+        privacyTier: "campus",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 93,
+        shortSummary: "Advanced generative reasoning powered by GPT 4o featuring custom GPTs, code interpreter, and interactive Canvas writing workspace.",
+        objective: "Collaborate on complex prose composition, iterate through statistical Python data analysis, and construct personalized study tutors.",
+        promptScaffold: "Activate interactive writing mode. Review my draft essay argument on urban migration without rewriting my sentences. Highlight passages where my deductive reasoning appears ungrounded and recommend rhetorical questions.",
+        ethicsConsiderations: "Attribution and authenticity. Require students to document their iterative prompts and transparently disclose how generative feedback was incorporated into final drafts.",
+        ferpaTraining: "ChatGPT Edu and Team plans isolate institutional data from model training. Standard consumer tiers require opting out in settings.",
+        accountReqs: "Individual email or institutional single sign on.",
+        url: "https://chatgpt.com",
+        icon: "ph-chat-circle-dots"
+      },
+      {
+        priority: 6,
+        id: "tool:6:claude",
+        name: "Claude",
+        vendor: "Anthropic PBC",
+        category: "writing",
+        categoryTitle: "Writing and Research",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Freemium / Institutional Tier",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 95,
+        shortSummary: "Anthropic Claude Sonnet featuring nuanced long form prose composition, live visual code artifacts, and deep philosophical dialogue.",
+        objective: "Explore nuanced argumentative debates, review computer science algorithms in real time interactive artifacts, and model rigorous academic voice.",
+        promptScaffold: "Construct an interactive visual simulation demonstrating binary search tree balancing using HTML, Tailwind CSS, and vanilla JavaScript in a single self contained artifact window.",
+        ethicsConsiderations: "Emphasize intellectual ownership. Claude excels at human like prose, so instructors must evaluate conceptual mastery through oral defenses or reflection journals.",
+        ferpaTraining: "Commercial enterprise education agreements feature zero data retention on prompts and strict privacy protocols.",
+        accountReqs: "Institutional single sign on or web email registration.",
+        url: "https://claude.ai",
+        icon: "ph-chat-teardrop-text"
+      },
+      {
+        priority: 7,
+        id: "tool:7:midjourney",
+        name: "Midjourney",
+        vendor: "Midjourney Inc.",
+        category: "visuals",
+        categoryTitle: "Image and Video",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Paid / Subscription",
+        pricingType: "Paid",
+        privacyBadge: "Student Direct",
+        privacyTier: "student",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 80,
+        shortSummary: "State of the art visual art synthesis engine for speculative architecture, cinematic digital humanities, and cross disciplinary concept design.",
+        objective: "Analyze visual aesthetics, study lighting parameters and composition in digital art coursework, and storyboard narrative humanities projects.",
+        promptScaffold: "Architectural isometric drawing of an off grid zero emission desert biological research station, photorealistic render, natural diffused morning sunlight, 50mm lens photography, high definition detailing (no typography).",
+        ethicsConsiderations: "Engage students in conversations regarding copyright, scraper training sets, and artist compensation within commercial generative ecosystems.",
+        ferpaTraining: "Public discord and web generations. Recommended for students aged 18 and older with instructor ethical guidance.",
+        accountReqs: "Discord account or Midjourney web authentication.",
+        url: "https://www.midjourney.com",
+        icon: "ph-aperture"
+      },
+      {
+        priority: 8,
+        id: "tool:8:suno",
+        name: "Suno",
+        vendor: "Suno Inc.",
+        category: "audio",
+        categoryTitle: "Audio and Music",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free Tier / Freemium",
+        pricingType: "Freemium",
+        privacyBadge: "Student Direct",
+        privacyTier: "student",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 85,
+        shortSummary: "Musical composition model that turns student written poetry, historical speeches, or science principles into arranged musical tracks.",
+        objective: "Teach poetic meter, cadence, and musical structure by having students write original lyrics and explore how genres shape emotional communication.",
+        promptScaffold: "Style : Acoustic Piedmont folk ballad, fingerpicked acoustic guitar, upright bass accompaniment. Tempo : 76 BPM. Lyrics : [Insert student composed poem detailing the life cycle of stars].",
+        ethicsConsiderations: "Preserve student authorship. Ensure students compose their own lyrics rather than generating both lyrics and melody automatically.",
+        ferpaTraining: "Free accounts create public audio tracks. Instructor demonstration mode recommended for primary classrooms.",
+        accountReqs: "Web authentication via Google, Apple, or Microsoft.",
+        url: "https://suno.com",
+        icon: "ph-music-notes"
+      },
+      {
+        priority: 9,
+        id: "tool:9:runway",
+        name: "Runway",
+        vendor: "Runway AI Inc.",
+        category: "visuals",
+        categoryTitle: "Image and Video",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free Tier / Freemium",
+        pricingType: "Freemium",
+        privacyBadge: "Campus Safe",
+        privacyTier: "campus",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 84,
+        shortSummary: "Gen 3 Alpha generative video engine offering camera motion control, dynamic physics, and cinematic video synthesis for multimedia storytelling.",
+        objective: "Produce speculative scientific visualizations, cinematic student documentaries, and explore the future of cinematic generative arts.",
+        promptScaffold: "Cinematic drone tracking shot flying through a dense coastal redwood forest enveloped in morning ocean mist, slow camera dolly movement, natural daylight, 4k photorealistic render.",
+        ethicsConsiderations: "Teach digital media literacy, deepfake recognition, and responsible synthetic video attribution in digital journalism courses.",
+        ferpaTraining: "Standard cloud terms apply. Suitable for university media departments and high school project demonstrations under teacher guidance.",
+        accountReqs: "Runway web account registration.",
+        url: "https://runwayml.com",
+        icon: "ph-video-camera"
+      },
+      {
+        priority: 10,
+        id: "tool:10:perplexity",
+        name: "Perplexity",
+        vendor: "Perplexity AI Inc.",
+        category: "writing",
+        categoryTitle: "Writing and Research",
+        bloomsLevel: "Evaluate & Verify",
+        pricingModel: "Free Tier / Pro Discount",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 92,
+        shortSummary: "Conversational answer engine with direct live academic source citations from peer reviewed journals and authoritative publications.",
+        objective: "Evaluate information reliability, corroborate web claims with primary citations, and distinguish between scholarly research and commercial promotion.",
+        promptScaffold: "Search Focus : Academic Papers. What are the documented ecological impacts of ocean thermal energy conversion systems? Provide an objective summary with direct DOI citations.",
+        ethicsConsiderations: "Require citation verification. Students must click through each numerical citation chip to confirm the source accurately reflects the generated assertion.",
+        ferpaTraining: "Student queries are not used for global foundation model training on enterprise accounts.",
+        accountReqs: "Free web search or verified education email discount.",
+        url: "https://www.perplexity.ai",
+        icon: "ph-compass"
+      },
+      {
+        priority: 11,
+        id: "tool:11:elevenlabs",
+        name: "ElevenLabs",
+        vendor: "ElevenLabs Inc.",
+        category: "audio",
+        categoryTitle: "Audio and Music",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free Tier / Edu Pricing",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 97,
+        shortSummary: "Expressive voice synthesis, student speech accessibility, and multilingual narration for audiobooks and language learners.",
+        objective: "Support auditory proofreading for student writers and provide accessible reading accommodations for multilingual and dyslexic learners.",
+        promptScaffold: "Narrate the following student historical analysis in an articulate scholarly cadence at 1.0x speed, placing natural pause emphasis on introductory transition clauses.",
+        ethicsConsiderations: "Biometric voice consent. Teach the ethics of synthetic voice reproduction and forbid cloning third party voices without explicit authorization.",
+        ferpaTraining: "Enterprise terms allow secure text to speech processing without public data dissemination.",
+        accountReqs: "Individual educator account or classroom access.",
+        url: "https://elevenlabs.io",
+        icon: "ph-speaker-high"
+      },
+      {
+        priority: 12,
+        id: "tool:12:adobe:firefly",
+        name: "Adobe Firefly",
+        vendor: "Adobe Inc.",
+        category: "visuals",
+        categoryTitle: "Image and Video",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free Tier / Campus License",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 94,
+        shortSummary: "Commercially safe generative image engine trained exclusively on licensed content, ideal for student portfolio design.",
+        objective: "Develop visual literacy and examine generative image prompting fidelity across diverse artistic movements and historical contexts.",
+        promptScaffold: "Create a concept illustration of an energy efficient greenhouse structure, architectural sketch aesthetic, warm daylight illumination, watercolor textures, high resolution (no text overlays).",
+        ethicsConsiderations: "Verify model training transparency. Teach students how Adobe Firefly restricts copyrighted artist replication compared to unconstrained open models.",
+        ferpaTraining: "Customer and student images are never utilized to train Adobe foundational generative weights.",
+        accountReqs: "Federated single sign on via institutional Google Workspace or Microsoft Azure directory.",
+        url: "https://www.adobe.com/sensei/generative-ai/firefly.html",
+        icon: "ph-paint-brush"
+      },
+      {
+        priority: 13,
+        id: "tool:13:canva:magic",
+        name: "Canva Magic Studio",
+        vendor: "Canva Pty Ltd",
+        category: "visuals",
+        categoryTitle: "Image and Video",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free for K12 / Campus Tier",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 95,
+        shortSummary: "All in one visual classroom suite for creating infographics, scientific posters, and multimodal presentations with strict student guardrails.",
+        objective: "Translate complex research findings into accessible visual infographics and collaborative classroom posters.",
+        promptScaffold: "Generate a clean four panel infographic layout comparing renewable energy storage methods, using high contrast accessible color palettes and clear visual hierarchy.",
+        ethicsConsiderations: "Balance visual polish with substantive research accuracy. Ensure visual layouts do not mask superficial data analysis.",
+        ferpaTraining: "Canva for Education complies with FERPA and COPPA, isolating student work from public training datasets.",
+        accountReqs: "School domain single sign on or teacher invitation code.",
+        url: "https://www.canva.com/education/",
+        icon: "ph-palette"
+      },
+      {
+        priority: 14,
+        id: "tool:14:udio",
+        name: "Udio",
+        vendor: "Uncharted Labs Inc.",
+        category: "audio",
+        categoryTitle: "Audio and Music",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free Tier / Subscription",
+        pricingType: "Freemium",
+        privacyBadge: "Student Direct",
+        privacyTier: "student",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 84,
+        shortSummary: "High fidelity music generation studio enabling students to experiment with complex vocal harmonies, instrumentation, and genre blending.",
+        objective: "Deconstruct music theory arrangements, counterpoints, and historical instrumentation styles across global music traditions.",
+        promptScaffold: "Compose a 30 second instrumental classical baroque fugue featuring harpsichord and cello in D minor, demonstrating contrapuntal melodic progression.",
+        ethicsConsiderations: "Discuss the impact of generative audio on studio musicians and require students to write analytical reflections on arrangement choices.",
+        ferpaTraining: "Consumer platform terms apply. Recommended for higher education or educator led demonstrations.",
+        accountReqs: "Standard web account sign in.",
+        url: "https://www.udio.com",
+        icon: "ph-waveform"
+      },
+      {
+        priority: 15,
+        id: "tool:15:magicschool",
+        name: "MagicSchool AI",
+        vendor: "MagicSchool Inc.",
+        category: "teaching",
+        categoryTitle: "Teaching and Accessibility",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free for Educators",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 98,
+        shortSummary: "Dedicated instructional assistant offering 60 plus educator workflows for rubric creation, IEP scaffolding, and reading differentiation.",
+        objective: "Reduce faculty administrative workload while creating customized learning scaffolds, formative assessments, and family communication letters.",
+        promptScaffold: "Generate a four point analytical rubric for a 10th grade persuasive essay on civic engagement, aligned with state literacy standards and written in student friendly language.",
+        ethicsConsiderations: "Always review and personalize IEP or 504 accommodation suggestions to reflect the individual student's documented needs.",
+        ferpaTraining: "Signed Student Data Privacy Agreements across thousands of districts; zero personally identifiable information required.",
+        accountReqs: "Educator sign in; MagicStudent rooms available via simple join code without student emails.",
+        url: "https://www.magicschool.ai",
+        icon: "ph-magic-wand"
+      },
+      {
+        priority: 16,
+        id: "tool:16:khanmigo",
+        name: "Khanmigo",
+        vendor: "Khan Academy",
+        category: "teaching",
+        categoryTitle: "Teaching and Accessibility",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free for Teachers",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 99,
+        shortSummary: "Nonprofit Socratic tutor built by Khan Academy that guides students through math, science, and humanities problems without giving away answers.",
+        objective: "Foster independent problem solving and metacognitive reflection during homework and in class practice sessions.",
+        promptScaffold: "I am stuck on finding the derivative of a composite function using the chain rule. Ask me a guiding question about the outer function first instead of solving it for me.",
+        ethicsConsiderations: "Built specifically with ethical guardrails that alert teachers if inappropriate topics arise and prevent academic dishonesty.",
+        ferpaTraining: "Strict nonprofit student data protection; student chat transcripts are visible to teachers and parents and never sold.",
+        accountReqs: "Khan Academy district roster or educator account.",
+        url: "https://www.khanmigo.ai",
+        icon: "ph-student"
+      },
+      {
+        priority: 17,
+        id: "tool:17:goblintools",
+        name: "Goblin.tools",
+        vendor: "Bram De Buyser",
+        category: "teaching",
+        categoryTitle: "Teaching and Accessibility",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "100% Free (No Ads)",
+        pricingType: "Free",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 99,
+        shortSummary: "Collection of small, neurodivergent friendly assistive tools designed to break overwhelming academic projects into manageable micro steps.",
+        objective: "Support executive functioning, time estimation, and professional tone checking for neurodivergent students and independent learners.",
+        promptScaffold: "Magic ToDo Task : Write a 10 page undergraduate research paper on renewable microgrids. Spiciness Level : 4 out of 5 (Break into small, low stress actionable sub steps).",
+        ethicsConsiderations: "Promotes student agency and self regulation without generating academic prose or replacing student thought.",
+        ferpaTraining: "Zero account registration required, zero tracking cookies, and no persistent storage of student text.",
+        accountReqs: "No login required; instant anonymous browser access.",
+        url: "https://goblin.tools",
+        icon: "ph-list-checks"
+      },
+      {
+        priority: 18,
+        id: "tool:18:diffit",
+        name: "Diffit",
+        vendor: "Diffit Inc.",
+        category: "teaching",
+        categoryTitle: "Teaching and Accessibility",
+        bloomsLevel: "Understand & Scaffold",
+        pricingModel: "Free for Teachers / School Tier",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 96,
+        shortSummary: "Instant curriculum differentiation platform that adapts any article, PDF, or topic into leveled reading passages with vocabulary scaffolds.",
+        objective: "Ensure every learner in a diverse classroom can engage with the same core disciplinary concepts at their appropriate Lexile reading level.",
+        promptScaffold: "Adapt this primary source scientific article on CRISPR gene editing for a 7th grade reading level, extracting 5 key vocabulary terms with Spanish translations and 3 comprehension questions.",
+        ethicsConsiderations: "Verify that simplified reading adaptations preserve the core conceptual rigor and factual nuance of the original text.",
+        ferpaTraining: "Educator facing tool; no student personal information is collected or stored.",
+        accountReqs: "Educator Google or Microsoft sign in.",
+        url: "https://web.diffit.me",
+        icon: "ph-books"
+      },
+      {
+        priority: 19,
+        id: "tool:19:recraft",
+        name: "Recraft",
+        vendor: "Recraft AI",
+        category: "visuals",
+        categoryTitle: "Image and Video",
+        bloomsLevel: "Create & Compose",
+        pricingModel: "Free Tier / Pro",
+        pricingType: "Freemium",
+        privacyBadge: "Student Direct",
+        privacyTier: "student",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 88,
+        shortSummary: "Professional infinite canvas design tool specializing in scalable vector graphics (SVG), icon sets, and brand consistent educational illustrations.",
+        objective: "Teach vector graphic principles, user interface iconography, and visual communication consistency in design and STEM courses.",
+        promptScaffold: "Generate a cohesive set of 4 flat vector SVG icons representing cellular mitosis stages, using strictly teal (#045577) and purple (#A02383) line work on a clean white background.",
+        ethicsConsiderations: "Encourage students to export raw SVG paths into vector editors to refine anchor points manually and learn foundational design craft.",
+        ferpaTraining: "Public generation on free tier; recommended for upper secondary and higher education design students.",
+        accountReqs: "Standard web account login.",
+        url: "https://www.recraft.ai",
+        icon: "ph-bezier-curve"
+      },
+      {
+        priority: 20,
+        id: "tool:20:scite",
+        name: "Scite",
+        vendor: "Scite LLC (Research Solutions)",
+        category: "writing",
+        categoryTitle: "Writing and Research",
+        bloomsLevel: "Evaluate & Verify",
+        pricingModel: "Freemium / University License",
+        pricingType: "Freemium",
+        privacyBadge: "FERPA Verified",
+        privacyTier: "ferpa",
+        wcagRating: "WCAG 2.1 AA Compliant",
+        wcagScore: 94,
+        shortSummary: "Smart citation index that reveals how scientific articles have been cited by subsequent researchers, showing supporting or contrasting evidence.",
+        objective: "Train graduate and undergraduate researchers to evaluate scholarly consensus rather than cherry picking isolated citations.",
+        promptScaffold: "Evaluate the citation history of this 2019 psychology study on working memory capacity. Identify how many subsequent peer reviewed papers offered contrasting experimental evidence.",
+        ethicsConsiderations: "Gold standard for academic integrity; teaches students that citation context matters more than raw citation count.",
+        ferpaTraining: "Academic research compliance; queries are private and grounded strictly in indexed scholarly literature.",
+        accountReqs: "University library proxy or individual researcher account.",
+        url: "https://scite.ai",
+        icon: "ph-quotes"
+      }
+    ];
+
+    const CATEGORY_LIST = [
+      { id: "all", label: "All Categories", icon: "ph-squares-four" },
+      { id: "core", label: "Core Models", icon: "ph-cpu" },
+      { id: "writing", label: "Writing and Research", icon: "ph-Books" },
+      { id: "visuals", label: "Image and Video", icon: "ph-image" },
+      { id: "audio", label: "Audio and Music", icon: "ph-music-notes" },
+      { id: "teaching", label: "Teaching and Accessibility", icon: "ph-chalkboard-teacher" }
+    ];
+
+    // State Management
+    let state = {
+      searchQuery: "",
+      selectedCategory: "all",
+      selectedPricing: "all",
+      selectedPrivacy: "all",
+      selectedBlooms: "all",
+      sortOrder: "featured",
+      quickTab: "all",
+      bookmarksOnly: false,
+      savedIds: [],
+      compareIds: ["tool:1:gemini:edu", "tool:3:gemini:notebook"],
+      currentModalToolId: null,
+      a11yEnhanced: false
+    };
+
+    // Load Saved State from LocalStorage
+    function loadSavedBookmarks() {
+      try {
+        const raw = localStorage.getItem("eduvators_saved_tools_v2");
+        if (raw) {
+          state.savedIds = JSON.parse(raw);
+        }
+      } catch (e) {
+        state.savedIds = [];
+      }
+      updateSavedBadgeCount();
+    }
+
+    function saveBookmarksToStorage() {
+      try {
+        localStorage.setItem("eduvators_saved_tools_v2", JSON.stringify(state.savedIds));
+      } catch (e) {}
+      updateSavedBadgeCount();
+    }
+
+    function updateSavedBadgeCount() {
+      const badge = document.getElementById("saved-counter-badge");
+      if (badge) badge.textContent = state.savedIds.length;
+    }
+
+    function updateCompareCountBadges() {
+      const top = document.getElementById("compare-count-top");
+      const hero = document.getElementById("compare-count-hero");
+      if (top) top.textContent = state.compareIds.length;
+      if (hero) hero.textContent = state.compareIds.length;
+    }
+
+    // Render Category Bar
+    function renderCategoryPills() {
+      const bar = document.getElementById("category-pills-bar");
+      if (!bar) return;
+
+      bar.innerHTML = CATEGORY_LIST.map(cat => {
+        const active = state.selectedCategory === cat.id;
+        const count = cat.id === "all"
+          ? EDUVATORS_TOOLS.length
+          : EDUVATORS_TOOLS.filter(t => t.category === cat.id).length;
+
+        return `
+          <button
+            type="button"
+            onclick="selectCategory('${cat.id}')"
+            class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold whitespace-nowrap transition border-2 ${
+              active
+                ? 'bg-[#A02383] text-white border-[#A02383] shadow-sm'
+                : 'bg-white text-[#2D2D2D] border-gray-200 hover:border-[#045577] hover:bg-[#E8F4F8]'
+            }"
+          >
+            <span class="${active ? 'text-white' : 'text-[#2D2D2D]'}">${cat.label}</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] ${
+              active ? 'bg-[#3D0A30] text-white' : 'bg-[#F5E6F0] text-[#A02383]'
+            }">${count}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    // Filter and Sort Tools
+    function getFilteredTools() {
+      return EDUVATORS_TOOLS.filter(tool => {
+        if (state.bookmarksOnly && !state.savedIds.includes(tool.id)) {
+          return false;
+        }
+        if (state.selectedCategory !== "all" && tool.category !== state.selectedCategory) {
+          return false;
+        }
+        if (state.selectedPricing !== "all" && tool.pricingType !== state.selectedPricing) {
+          return false;
+        }
+        if (state.selectedPrivacy !== "all" && tool.privacyTier !== state.selectedPrivacy) {
+          return false;
+        }
+        if (state.selectedBlooms !== "all" && tool.bloomsLevel !== state.selectedBlooms) {
+          return false;
+        }
+        if (state.quickTab === "core" && tool.category !== "core") {
+          return false;
+        }
+        if (state.quickTab === "free" && tool.pricingType !== "Free") {
+          return false;
+        }
+        if (state.quickTab === "ferpa" && tool.privacyTier !== "ferpa") {
+          return false;
+        }
+        if (state.quickTab === "accessibility" && tool.wcagScore < 95) {
+          return false;
+        }
+        if (state.searchQuery.trim() !== "") {
+          const q = state.searchQuery.toLowerCase();
+          const haystack = `${tool.name} ${tool.vendor} ${tool.categoryTitle} ${tool.bloomsLevel} ${tool.shortSummary} ${tool.objective} ${tool.promptScaffold}`.toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      }).sort((a, b) => {
+        if (state.sortOrder === "alphabetical") {
+          return a.name.localeCompare(b.name);
+        }
+        if (state.sortOrder === "pricing") {
+          const rank = { "Free": 1, "Freemium": 2, "Paid": 3 };
+          if (rank[a.pricingType] !== rank[b.pricingType]) {
+            return rank[a.pricingType] - rank[b.pricingType];
+          }
+          return a.priority - b.priority;
+        }
+        return a.priority - b.priority;
+      });
+    }
+
+    // Render Cards Grid
+    function renderToolsGrid() {
+      const grid = document.getElementById("tools-cards-grid");
+      const empty = document.getElementById("empty-state-card");
+      const indicator = document.getElementById("active-results-indicator");
+      const resetBtn = document.getElementById("reset-filters-btn");
+
+      const filtered = getFilteredTools();
+
+      if (indicator) {
+        indicator.textContent = `Displaying ${filtered.length} of ${EDUVATORS_TOOLS.length} Educational Tools`;
+      }
+
+      const hasFilters = state.searchQuery !== "" ||
+        state.selectedCategory !== "all" ||
+        state.selectedPricing !== "all" ||
+        state.selectedPrivacy !== "all" ||
+        state.selectedBlooms !== "all" ||
+        state.quickTab !== "all" ||
+        state.bookmarksOnly;
+
+      if (resetBtn) {
+        resetBtn.classList.toggle("hidden", !hasFilters);
+      }
+
+      renderActiveFilterPills();
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        empty.classList.remove("hidden");
+        return;
+      }
+
+      empty.classList.add("hidden");
+
+      grid.innerHTML = filtered.map(tool => {
+        const isSaved = state.savedIds.includes(tool.id);
+        const isCompared = state.compareIds.includes(tool.id);
+        const isTopEleven = tool.priority <= 11;
+
+        const privacyStyle = tool.privacyTier === "ferpa"
+          ? "bg-[#E8F4F8] text-[#045577] border-[#045577]"
+          : tool.privacyTier === "campus"
+            ? "bg-[#F5E6F0] text-[#3D0A30] border-[#A02383]"
+            : "bg-gray-100 text-[#2D2D2D] border-gray-400";
+
+        return `
+          <article 
+            class="tool-card bg-white rounded-xl border-2 ${isTopEleven ? 'border-[#045577]' : 'border-gray-200'} shadow-sm hover:shadow-md hover:border-[#A02383] transition flex flex-col justify-between overflow-hidden"
+          >
+            <div>
+              <!-- Card Top Ribbon -->
+              <div class="px-4 py-2 ${isTopEleven ? 'bg-[#3D0A30]' : 'bg-[#045577]'} flex items-center justify-between text-[11px] font-bold">
+                <span class="text-white">
+                  #${tool.priority} • ${tool.categoryTitle}
+                </span>
+                <span class="px-2 py-0.5 rounded bg-[#A02383] text-white text-[10px]">
+                  ${tool.pricingType}
+                </span>
+              </div>
+
+              <!-- Card Header -->
+              <div class="p-4 pb-2 flex items-start justify-between gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="w-11 h-11 rounded-lg bg-[#F5E6F0] border border-[#A02383] flex items-center justify-center shrink-0">
+                    <i class="ph-bold ${tool.icon} text-xl text-[#A02383]"></i>
+                  </div>
+                  <div>
+                    <h2 class="text-sm font-bold text-[#3D0A30] leading-snug">
+                      <button type="button" onclick="openGuideModal('${tool.id}')" class="text-left hover:text-[#A02383] focus:outline-none">
+                        ${tool.name}
+                      </button>
+                    </h2>
+                    <p class="text-[11px] text-[#045577] font-bold mt-0.5">${tool.vendor}</p>
+                  </div>
+                </div>
+
+                <!-- Bookmark Icon Button -->
+                <button
+                  type="button"
+                  onclick="toggleBookmark('${tool.id}', event)"
+                  class="p-1.5 rounded-lg border ${isSaved ? 'bg-[#A02383] border-[#A02383] text-white' : 'bg-white border-gray-300 text-[#2D2D2D] hover:bg-[#F5E6F0]'} transition shrink-0"
+                  aria-label="${isSaved ? 'Remove from saved tools' : 'Save tool'}"
+                  title="${isSaved ? 'Saved' : 'Save tool'}"
+                >
+                  <i class="ph-bold ph-bookmark-simple text-sm ${isSaved ? 'text-white' : 'text-[#2D2D2D]'}"></i>
+                </button>
+              </div>
+
+              <!-- Badges Row -->
+              <div class="px-4 py-1.5 flex flex-wrap items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold border ${privacyStyle}">
+                  ${tool.privacyBadge}
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#F5E6F0] text-[#3D0A30]">
+                  ${tool.bloomsLevel}
+                </span>
+              </div>
+
+              <!-- Summary Description -->
+              <div class="px-4 py-2">
+                <p class="text-xs text-[#2D2D2D] leading-relaxed">
+                  ${tool.shortSummary}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card Footer Actions -->
+            <div class="p-4 pt-3 mt-2 border-t border-gray-100 bg-slate-50/60 flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onclick="openGuideModal('${tool.id}')"
+                class="flex-1 py-2 px-3 rounded-lg bg-[#A02383] hover:bg-[#871a6e] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs"
+              >
+                <i class="ph-bold ph-book-open-text text-sm text-white"></i>
+                <span class="text-white">Classroom Guide</span>
+              </button>
+
+              <button
+                type="button"
+                onclick="toggleCompareTool('${tool.id}', event)"
+                class="p-2 rounded-lg border-2 ${isCompared ? 'bg-[#045577] border-[#045577] text-white' : 'bg-white border-[#045577] text-[#045577] hover:bg-[#E8F4F8]'} text-xs font-bold transition"
+                title="Select for Matrix Comparison"
+                aria-label="Compare ${tool.name}"
+              >
+                <i class="ph-bold ph-scales text-sm ${isCompared ? 'text-white' : 'text-[#045577]'}"></i>
+              </button>
+
+              <a
+                href="${tool.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 rounded-lg border-2 border-gray-300 bg-white hover:border-[#A02383] text-[#2D2D2D] transition"
+                title="Open external platform"
+                aria-label="Launch ${tool.name} website"
+              >
+                <i class="ph-bold ph-arrow-square-out text-sm"></i>
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderActiveFilterPills() {
+      const container = document.getElementById("filter-tag-pills");
+      const list = document.getElementById("filter-pills-list");
+      if (!container || !list) return;
+
+      const pills = [];
+      if (state.bookmarksOnly) {
+        pills.push({ label: "Saved Bookmarks Only", action: "toggleBookmarkOnlyView()" });
+      }
+      if (state.selectedCategory !== "all") {
+        const cat = CATEGORY_LIST.find(c => c.id === state.selectedCategory);
+        pills.push({ label: `Category : ${cat ? cat.label : state.selectedCategory}`, action: "selectCategory('all')" });
+      }
+      if (state.selectedPricing !== "all") {
+        pills.push({ label: `Pricing : ${state.selectedPricing}`, action: "setPricingFilter('all')" });
+      }
+      if (state.selectedPrivacy !== "all") {
+        pills.push({ label: `Privacy : ${state.selectedPrivacy.toUpperCase()}`, action: "resetPrivacyFilter()" });
+      }
+      if (state.selectedBlooms !== "all") {
+        pills.push({ label: `Bloom's : ${state.selectedBlooms}`, action: "resetBloomsFilter()" });
+      }
+
+      if (pills.length === 0) {
+        container.classList.add("hidden");
+        return;
+      }
+
+      container.classList.remove("hidden");
+      list.innerHTML = pills.map(p => `
+        <button type="button" onclick="${p.action}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#F5E6F0] text-[#3D0A30] border border-[#A02383] text-xs font-bold">
+          <span>${p.label}</span>
+          <i class="ph-bold ph-x text-xs text-[#A02383]"></i>
+        </button>
+      `).join("");
+    }
+
+    // Filter Interactions
+    function selectCategory(catId) {
+      state.selectedCategory = catId;
+      renderCategoryPills();
+      renderToolsGrid();
+    }
+
+    function setPricingFilter(price) {
+      state.selectedPricing = price;
+      document.querySelectorAll(".price-btn").forEach(btn => {
+        btn.className = "price-btn px-2.5 py-1 rounded bg-[#E8F4F8] text-[#045577] hover:bg-[#F5E6F0]";
+      });
+      const activeBtn = document.getElementById(`price-btn-${price}`);
+      if (activeBtn) {
+        activeBtn.className = "price-btn px-2.5 py-1 rounded bg-[#A02383] text-white";
+      }
+      renderToolsGrid();
+    }
+
+    function handleSearchInput(e) {
+      state.searchQuery = e.target.value;
+      renderToolsGrid();
+    }
+
+    function handleSortSelect(e) {
+      state.sortOrder = e.target.value;
+      renderToolsGrid();
+    }
+
+    function handlePrivacySelect(e) {
+      state.selectedPrivacy = e.target.value;
+      renderToolsGrid();
+    }
+
+    function resetPrivacyFilter() {
+      state.selectedPrivacy = "all";
+      document.getElementById("select-privacy-filter").value = "all";
+      renderToolsGrid();
+    }
+
+    function handleBloomsSelect(e) {
+      state.selectedBlooms = e.target.value;
+      renderToolsGrid();
+    }
+
+    function resetBloomsFilter() {
+      state.selectedBlooms = "all";
+      document.getElementById("select-blooms-filter").value = "all";
+      renderToolsGrid();
+    }
+
+    function setQuickTab(tab) {
+      state.quickTab = tab;
+      ["all", "core", "free", "ferpa", "accessibility"].forEach(id => {
+        const el = document.getElementById(`qtab-${id}`);
+        if (el) {
+          el.className = id === tab
+            ? "px-3 py-1.5 rounded text-xs font-bold transition bg-[#A02383] text-white shadow-xs"
+            : "px-3 py-1.5 rounded text-xs font-bold text-[#2D2D2D] hover:bg-white transition";
+        }
+      });
+      renderToolsGrid();
+    }
+
+    function resetAllFilters() {
+      state.searchQuery = "";
+      state.selectedCategory = "all";
+      state.selectedPricing = "all";
+      state.selectedPrivacy = "all";
+      state.selectedBlooms = "all";
+      state.sortOrder = "featured";
+      state.quickTab = "all";
+      state.bookmarksOnly = false;
+
+      document.getElementById("guide-search-input").value = "";
+      document.getElementById("select-sort-order").value = "featured";
+      document.getElementById("select-privacy-filter").value = "all";
+      document.getElementById("select-blooms-filter").value = "all";
+
+      setPricingFilter("all");
+      setQuickTab("all");
+      renderCategoryPills();
+      renderToolsGrid();
+    }
+
+    // Bookmarking Actions
+    function toggleBookmark(toolId, event) {
+      if (event) event.stopPropagation();
+      const idx = state.savedIds.indexOf(toolId);
+      if (idx > -1) {
+        state.savedIds.splice(idx, 1);
+        showToast("Removed from Saved Tools");
+      } else {
+        state.savedIds.push(toolId);
+        showToast("Saved to your Educator Toolkit");
+      }
+      saveBookmarksToStorage();
+      renderToolsGrid();
+      if (state.currentModalToolId === toolId) {
+        syncModalButtons(toolId);
+      }
+    }
+
+    function toggleBookmarkOnlyView() {
+      state.bookmarksOnly = !state.bookmarksOnly;
+      const btn = document.getElementById("btn-saved-drawer");
+      if (btn) {
+        if (state.bookmarksOnly) {
+          btn.className = "flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg border-2 border-[#A02383] bg-[#A02383] text-white transition";
+        } else {
+          btn.className = "flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg border-2 border-[#045577] bg-[#E8F4F8] text-[#045577] hover:bg-[#045577] hover:text-white transition";
+        }
+      }
+      renderToolsGrid();
+    }
+
+    // Pedagogical Guide Modal Actions
+    function openGuideModal(toolId) {
+      const tool = EDUVATORS_TOOLS.find(t => t.id === toolId);
+      if (!tool) return;
+      state.currentModalToolId = toolId;
+
+      document.getElementById("modal-priority-rank").textContent = `Priority #${tool.priority} • ${tool.categoryTitle}`;
+      document.getElementById("modal-tool-name").textContent = tool.name;
+      document.getElementById("modal-vendor-label").textContent = tool.vendor;
+      document.getElementById("modal-privacy-badge").textContent = tool.privacyBadge;
+      document.getElementById("modal-pricing-pill").textContent = tool.pricingModel;
+      document.getElementById("modal-blooms-badge").textContent = `Bloom's : ${tool.bloomsLevel}`;
+      document.getElementById("modal-accessibility-badge").textContent = `${tool.wcagRating} (${tool.wcagScore}%)`;
+
+      document.getElementById("modal-tool-icon").innerHTML = `<i class="ph-bold ${tool.icon} text-3xl text-[#A02383]"></i>`;
+      document.getElementById("modal-summary-text").textContent = tool.shortSummary;
+      document.getElementById("modal-objective-text").textContent = tool.objective;
+      document.getElementById("modal-prompt-text").textContent = tool.promptScaffold;
+      document.getElementById("modal-ethics-text").textContent = tool.ethicsConsiderations;
+      document.getElementById("modal-privacy-training").textContent = ` ${tool.ferpaTraining}`;
+      document.getElementById("modal-privacy-account").textContent = ` ${tool.accountReqs}`;
+      document.getElementById("modal-external-link").href = tool.url;
+
+      syncModalButtons(toolId);
+
+      document.getElementById("pedagogical-modal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function syncModalButtons(toolId) {
+      const isSaved = state.savedIds.includes(toolId);
+      const bText = document.getElementById("modal-bookmark-btn-text");
+      if (bText) bText.textContent = isSaved ? "Saved in Toolkit" : "Save Tool";
+
+      const isCompared = state.compareIds.includes(toolId);
+      const cText = document.getElementById("modal-compare-btn-text");
+      if (cText) cText.textContent = isCompared ? "Selected for Compare" : "Add to Compare";
+    }
+
+    function toggleCurrentModalBookmark() {
+      if (state.currentModalToolId) {
+        toggleBookmark(state.currentModalToolId);
+      }
+    }
+
+    function toggleCompareFromModal() {
+      if (state.currentModalToolId) {
+        toggleCompareTool(state.currentModalToolId);
+        syncModalButtons(state.currentModalToolId);
+      }
+    }
+
+    function closeGuideModal() {
+      document.getElementById("pedagogical-modal").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function copyPromptCode() {
+      const prompt = document.getElementById("modal-prompt-text").textContent;
+      navigator.clipboard.writeText(prompt).then(() => {
+        const label = document.getElementById("copy-btn-label");
+        label.textContent = "Copied!";
+        showToast("Classroom prompt copied to clipboard");
+        setTimeout(() => {
+          label.textContent = "Copy Prompt";
+        }, 2000);
+      });
+    }
+
+    // Export Single Tool Lesson Handout as Markdown
+    function exportSingleToolHandout() {
+      const tool = EDUVATORS_TOOLS.find(t => t.id === state.currentModalToolId);
+      if (!tool) return;
+
+      const md = [
+        `# Eduvators Classroom Guide : ${tool.name}`,
+        ``,
+        `**Vendor :** ${tool.vendor}`,
+        `**Category :** ${tool.categoryTitle}`,
+        `**Bloom's Cognitive Level :** ${tool.bloomsLevel}`,
+        `**Pricing Model :** ${tool.pricingModel}`,
+        `**Privacy Rating :** ${tool.privacyBadge}`,
+        `**Official Link :** ${tool.url}`,
+        ``,
+        `## Resource Overview`,
+        `${tool.shortSummary}`,
+        ``,
+        `## Pedagogical Objective and Classroom Integration`,
+        `${tool.objective}`,
+        ``,
+        `## Classroom Ready Prompt Scaffolding`,
+        `> ${tool.promptScaffold}`,
+        ``,
+        `## Responsible AI Guidelines (Human in the Loop)`,
+        `${tool.ethicsConsiderations}`,
+        ``,
+        `## Institutional Privacy Audit`,
+        `* **Data Training Policy :** ${tool.ferpaTraining}`,
+        `* **Account Architecture :** ${tool.accountReqs}`,
+        ``,
+        `Generated via Eduvators AI Tool Guide (www.eduvators.net)`
+      ].join("\n");
+
+      downloadMarkdownFile(`${tool.name.toLowerCase().replace(/[^a-z0-9]+/g, "_")}_guide.md`, md);
+      showToast("Downloaded Classroom Guide (.md)");
+    }
+
+    // Side by Side Comparison Matrix Logic
+    function toggleCompareTool(toolId, event) {
+      if (event) event.stopPropagation();
+      const idx = state.compareIds.indexOf(toolId);
+      if (idx > -1) {
+        state.compareIds.splice(idx, 1);
+        showToast("Removed from Comparison Matrix");
+      } else {
+        if (state.compareIds.length >= 2) {
+          state.compareIds.shift();
+        }
+        state.compareIds.push(toolId);
+        showToast("Added to Side by Side Matrix");
+      }
+      updateCompareCountBadges();
+      renderToolsGrid();
+    }
+
+    function openCompareModal() {
+      const s1 = document.getElementById("compare-select-1");
+      const s2 = document.getElementById("compare-select-2");
+
+      const optionsHtml = EDUVATORS_TOOLS.map(t => `<option value="${t.id}">#${t.priority} : ${t.name}</option>`).join("");
+      s1.innerHTML = optionsHtml;
+      s2.innerHTML = optionsHtml;
+
+      s1.value = state.compareIds[0] || EDUVATORS_TOOLS[0].id;
+      s2.value = state.compareIds[1] || EDUVATORS_TOOLS[2].id;
+
+      renderComparisonMatrixTable(s1.value, s2.value);
+      document.getElementById("compare-matrix-modal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function updateComparisonFromSelects() {
+      const id1 = document.getElementById("compare-select-1").value;
+      const id2 = document.getElementById("compare-select-2").value;
+      state.compareIds = [id1, id2];
+      updateCompareCountBadges();
+      renderComparisonMatrixTable(id1, id2);
+      renderToolsGrid();
+    }
+
+    function renderComparisonMatrixTable(id1, id2) {
+      const t1 = EDUVATORS_TOOLS.find(t => t.id === id1) || EDUVATORS_TOOLS[0];
+      const t2 = EDUVATORS_TOOLS.find(t => t.id === id2) || EDUVATORS_TOOLS[1];
+
+      const container = document.getElementById("comparison-table-container");
+      container.innerHTML = `
+        <table class="w-full text-left border-collapse border-2 border-[#045577] text-xs">
+          <thead>
+            <tr class="bg-[#3D0A30] text-white">
+              <th class="p-3 border border-white/20 w-1/4 text-white font-bold">Evaluation Dimension</th>
+              <th class="p-3 border border-white/20 w-3/8 text-white font-bold">${t1.name}</th>
+              <th class="p-3 border border-white/20 w-3/8 text-white font-bold">${t2.name}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="bg-[#E8F4F8]/50">
+              <td class="p-3 font-bold text-[#045577]">Student Privacy Status</td>
+              <td class="p-3 font-bold">${t1.privacyBadge}</td>
+              <td class="p-3 font-bold">${t2.privacyBadge}</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-[#045577]">Pricing Model</td>
+              <td class="p-3">${t1.pricingModel}</td>
+              <td class="p-3">${t2.pricingModel}</td>
+            </tr>
+            <tr class="bg-[#F5E6F0]/50">
+              <td class="p-3 font-bold text-[#A02383]">Bloom's Cognitive Level</td>
+              <td class="p-3 font-bold">${t1.bloomsLevel}</td>
+              <td class="p-3 font-bold">${t2.bloomsLevel}</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-[#045577]">WCAG Accessibility Score</td>
+              <td class="p-3">${t1.wcagRating} (${t1.wcagScore}%)</td>
+              <td class="p-3">${t2.wcagRating} (${t2.wcagScore}%)</td>
+            </tr>
+            <tr class="bg-[#E8F4F8]/50">
+              <td class="p-3 font-bold text-[#045577]">Pedagogical Objective</td>
+              <td class="p-3 leading-relaxed">${t1.objective}</td>
+              <td class="p-3 leading-relaxed">${t2.objective}</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-[#045577]">Data Training Isolation</td>
+              <td class="p-3 leading-relaxed">${t1.ferpaTraining}</td>
+              <td class="p-3 leading-relaxed">${t2.ferpaTraining}</td>
+            </tr>
+            <tr class="bg-[#F5E6F0]/50">
+              <td class="p-3 font-bold text-[#A02383]">Human in the Loop Ethics</td>
+              <td class="p-3 leading-relaxed">${t1.ethicsConsiderations}</td>
+              <td class="p-3 leading-relaxed">${t2.ethicsConsiderations}</td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+    }
+
+    function clearComparisonSelection() {
+      state.compareIds = ["tool:1:gemini:edu", "tool:3:gemini:notebook"];
+      updateCompareCountBadges();
+      openCompareModal();
+      renderToolsGrid();
+    }
+
+    function closeCompareModal() {
+      document.getElementById("compare-matrix-modal").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Syllabus Policy Builder Modal Logic
+    function openSyllabusModal() {
+      const sel = document.getElementById("syl-approved-tool");
+      if (sel && sel.options.length === 0) {
+        sel.innerHTML = EDUVATORS_TOOLS.map(t => `<option value="${t.id}">${t.name} (${t.privacyBadge})</option>`).join("");
+      }
+      refreshSyllabusPreview();
+      document.getElementById("syllabus-builder-modal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function refreshSyllabusPreview() {
+      const course = document.getElementById("syl-course-name").value || "Course Title";
+      const tier = document.getElementById("syl-policy-tier").value;
+      const toolId = document.getElementById("syl-approved-tool").value;
+      const tool = EDUVATORS_TOOLS.find(t => t.id === toolId) || EDUVATORS_TOOLS[0];
+
+      let policyBody = "";
+      if (tier === "collaborative") {
+        policyBody = `In ${course}, students are encouraged to utilize generative artificial intelligence platforms such as ${tool.name} as collaborative inquiry partners. Human in the loop verification is mandatory : you are fully responsible for verifying factual accuracy, checking primary citations, and ensuring your authentic voice leads the final submission.`;
+      } else if (tier === "scaffolded") {
+        policyBody = `In ${course}, generative artificial intelligence tools including ${tool.name} may be utilized strictly during pre writing, Socratic brainstorming, and structural outlining phases. All submitted prose drafts must be composed independently without automated text generation.`;
+      } else {
+        policyBody = `In ${course}, generative artificial intelligence tools may only be utilized on assignments where the instructor provides explicit written authorization and scaffolding instructions.`;
+      }
+
+      const statement = [
+        `COURSE SYLLABUS POLICY : ARTIFICIAL INTELLIGENCE & ACADEMIC INTEGRITY`,
+        `Course : ${course}`,
+        `Primary Vetted Platform : ${tool.name} (${tool.privacyBadge})`,
+        ``,
+        `1. Pedagogical Philosophy :`,
+        `${policyBody}`,
+        ``,
+        `2. Student Privacy & Data Protection :`,
+        `Never upload personally identifiable information or private peer work into unvetted consumer models. ${tool.name} is highlighted because : ${tool.ferpaTraining}`,
+        ``,
+        `3. Mandatory Student AI Attribution Template :`,
+        `Every assignment utilizing AI assistance must include an appendix statement formatted as follows :`,
+        `"I utilized ${tool.name} during the [brainstorming / outlining / editing] stage of this project. Key prompts included : [insert prompt]. I independently verified all outputs and composed the final submission."`
+      ].join("\n");
+
+      document.getElementById("syllabus-output-box").textContent = statement;
+    }
+
+    function copySyllabusText() {
+      const text = document.getElementById("syllabus-output-box").textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Syllabus policy statement copied to clipboard");
+      });
+    }
+
+    function downloadSyllabusMarkdown() {
+      const text = document.getElementById("syllabus-output-box").textContent;
+      downloadMarkdownFile("eduvators_syllabus_ai_policy.md", text);
+      showToast("Downloaded Syllabus Policy (.md)");
+    }
+
+    function closeSyllabusModal() {
+      document.getElementById("syllabus-builder-modal").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Helper to trigger Markdown download
+    function downloadMarkdownFile(filename, content) {
+      const blob = new Blob([content], { type: "text/markdown;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Accessibility UDL Toggle
+    function toggleAccessibilityMode() {
+      state.a11yEnhanced = !state.a11yEnhanced;
+      document.documentElement.classList.toggle("a11y-large-text", state.a11yEnhanced);
+      document.documentElement.classList.toggle("a11y-high-contrast", state.a11yEnhanced);
+      const lbl = document.getElementById("a11y-status-label");
+      if (lbl) lbl.textContent = state.a11yEnhanced ? "UDL Active" : "UDL View";
+      showToast(state.a11yEnhanced ? "High Contrast & Large Text Enabled" : "Standard Display Restored");
+    }
+
+    // Suggest Tool Modal & Privacy Info Modal
+    function openSuggestModal() {
+      document.getElementById("suggest-form").classList.remove("hidden");
+      document.getElementById("suggest-confirmation").classList.add("hidden");
+      document.getElementById("suggest-tool-modal").classList.remove("hidden");
+    }
+
+    function closeSuggestModal() {
+      document.getElementById("suggest-tool-modal").classList.add("hidden");
+    }
+
+    function handleSuggestFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById("suggest-form").classList.add("hidden");
+      document.getElementById("suggest-confirmation").classList.remove("hidden");
+      showToast("Candidate tool submitted for Eduvators audit");
+      setTimeout(() => {
+        closeSuggestModal();
+        e.target.reset();
+      }, 1800);
+    }
+
+    function openPrivacyInfoModal() {
+      document.getElementById("privacy-checklist-modal").classList.remove("hidden");
+    }
+
+    function closePrivacyInfoModal() {
+      document.getElementById("privacy-checklist-modal").classList.add("hidden");
+    }
+
+    // Toast Notification
+    function showToast(msg) {
+      const toast = document.getElementById("eduvators-toast");
+      const text = document.getElementById("toast-text");
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 2600);
+    }
+
+    // Escape Key Handler for Modals
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeGuideModal();
+        closeCompareModal();
+        closeSyllabusModal();
+        closeSuggestModal();
+        closePrivacyInfoModal();
+      }
+    });
+
+    // Initialize Application on DOM Ready
+    document.addEventListener("DOMContentLoaded", () => {
+      loadSavedBookmarks();
+      updateCompareCountBadges();
+      renderCategoryPills();
+      renderToolsGrid();
+    });
+  </script>
+</body>
+</html>
